@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn-orenge {
+  @apply px-5 py-3 bg-orange-500 text-white rounded-lg shadow-md;
+}
+
+.blue-btn {
+    @apply px-5 py-3 bg-white text-black rounded-lg  border border-blue-500 hover:bg-blue-50 transition-all duration-300 text-blue-500;
+
+}
+
+/* width */
+::-webkit-scrollbar {
+ 
+    display: none;
+}
