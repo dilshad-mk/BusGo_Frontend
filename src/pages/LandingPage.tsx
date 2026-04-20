@@ -1,12 +1,22 @@
 import React from 'react'
-import Navbar from '../components/layout/Navbar.js'
+import Navbar from './components/Navbar.js'
 import Home from './components/Home.js'
+import Features from './components/Features.js'
+import HowItWorks from './components/HowItWorks.js'
+import Benefits from './components/Benefits.js'
+import Banner_Footer from './components/Banner_Footer.js'
+import Footer from './components/Footer.js'
 
 function LandingPage() {
   return (
-    <div >
+    <div className='scroll-smooth'>
       <Navbar/>
-      <Home/>  
+      <Home/> 
+      <Features/> 
+      <HowItWorks/>
+      <Benefits/>
+      <Banner_Footer/>
+      <Footer/>
     </div>
   )
 }

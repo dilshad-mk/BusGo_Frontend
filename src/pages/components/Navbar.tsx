@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import Logo from '../../assets/images/logo.png';
 import {motion} from "framer-motion";
-import Loginbtn from '../ui/Loginbtn.js';
-import SignUpBtn from '../ui/SignUpBtn.js';
+import Loginbtn from '../../components/ui/Loginbtn.js';
+import SignUpBtn from '../../components/ui/SignUpBtn.js';
 function Navbar() {
 
 
@@ -31,9 +31,21 @@ function Navbar() {
       <li className=' hover:text-black cursor-pointer duration-300 transition-colors'>Home</li>
 
       </a>
+
+      <a href="#features">
       <li className=' hover:text-black cursor-pointer duration-300 transition-colors'>Features</li>
+
+      </a>
+
+      <a href="#howitworks">
       <li className=' hover:text-black cursor-pointer duration-300 transition-colors'>How It Works</li>
+
+      </a>
+      <a href="#contact">
+
       <li className=' hover:text-black cursor-pointer duration-300 transition-colors'>Contact</li>
+
+      </a>
     </ul>
    </div>
 
@@ -121,9 +133,20 @@ function Navbar() {
       <li className='border-b w-full text-center border-neutral-100'>Home</li>
 
       </a>
+
+      <a href="#features">
       <li className='border-b w-full text-center border-neutral-100'>Features</li>
+
+      </a>
+
+      <a href="#howitworks">
       <li className='border-b w-full text-center border-neutral-100'>How It Works</li>
+
+      </a>
+      <a href="#contact">
       <li className='border-b w-full text-center border-neutral-100'>Contact</li>
+
+      </a>
     </ul>
 
    <div className='md:hidden flex flex-col items-center gap-3 text-[17px] font-semibold'>

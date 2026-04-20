@@ -10,9 +10,16 @@
     @apply px-5 py-3 bg-white text-black rounded-lg  border border-blue-500 hover:bg-blue-50 transition-all duration-300 text-blue-500;
 
 }
+/* 
 
-/* width */
 ::-webkit-scrollbar {
  
     display: none;
+} */
+html {
+  scroll-behavior: smooth;
+}
+
+section {
+  scroll-margin-top: 70px; /* navbar height */
 }
