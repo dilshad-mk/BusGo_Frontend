@@ -150,8 +150,8 @@ function Navbar() {
     </ul>
 
    <div className='md:hidden flex flex-col items-center gap-3 text-[17px] font-semibold'>
-     <button className='px-4 py-1 bg-[#f07800] rounded-lg cursor-pointer duration-300 transition-colors text-white'>Login</button>
-     <button className='bg-[#f07800] px-4 py-1 text-white rounded-lg'>Sign Up</button>
+    <Loginbtn/>
+    <SignUpBtn/>
     </div> 
 
 

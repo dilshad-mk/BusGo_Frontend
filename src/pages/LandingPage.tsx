@@ -6,6 +6,7 @@ import HowItWorks from './components/HowItWorks.js'
 import Benefits from './components/Benefits.js'
 import Banner_Footer from './components/Banner_Footer.js'
 import Footer from './components/Footer.js'
+import Login from '../features/auth/components/Login.js'
 
 function LandingPage() {
   return (
@@ -17,6 +18,7 @@ function LandingPage() {
       <Benefits/>
       <Banner_Footer/>
       <Footer/>
+      {/* <Login/> */}
     </div>
   )
 }
