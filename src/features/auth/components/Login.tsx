@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import Logo from '../../../assets/images/logo.png'
 import { div, span } from 'motion/react-client'
 import ForgotPaasword from './ForgotPaasword.js';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
-
+const navigate = useNavigate();
 
     // user / admin toggler condition-------------
     const [toggle, setToggle] = useState("user");
@@ -78,9 +79,21 @@ const handleForgotSuccess = (data) => {
   return;
    }
   setError("");
-        console.log({
-            email, password, role: toggle
-        });
+
+  
+  localStorage.setItem("userRole", toggle);
+  localStorage.setItem("isAuth", "true");
+
+
+
+  if (toggle === "user") {
+    navigate("/userDashbord");
+  } else {
+    navigate("/adminDashbord");
+}
+        // console.log({
+        //     email, password, role: toggle
+        // });
     }
 
     return (
@@ -90,7 +103,7 @@ const handleForgotSuccess = (data) => {
 
             <div className='flex justify-center items-center bg-white p-3 tablet:p-5 rounded-xl gap-5' >
 
-                {/* banner ----------- */}
+                {/* banner  hidden in small screens----------- */}
                 <div className='hidden tablet:flex flex-col bg-gradient-to-bl from-blue-500 to-purple-400 justify-center items-center rounded-xl text-white p-20 w-[620px] text-center gap-3 '>
                     <img src={Logo} alt="logo" className='w-[320px] ' />
                     <h1 className='font-bold text-[30px]'>Welcome Back!</h1>
@@ -100,6 +113,7 @@ const handleForgotSuccess = (data) => {
                 {/* login form------------ */}
                 <form action="" className='flex flex-col justify-center px-5 gap-5 ' onSubmit={handleSubmit}>
 
+                        {/* error msg---- */}
                     {error && (
                          <span className='text-red-500 text-center'>{error}</span>
                     )}
@@ -109,29 +123,33 @@ const handleForgotSuccess = (data) => {
 
                     {/* admin/user toggler--- */}
                     <div className='flex w-full bg-neutral-300 h-fit py-1 rounded-3xl px-2 justify-between items-center'>
-                        <button type='button' className={` rounded-full w-full h-12 transition-all duration-300  ${toggle === "user" ? "shadow-sm shadow-black bg-white text-blue-500" : "text-neutral-500"}`} onClick={() => { setToggle("user") }}>
+
+                        <button type='button' className={` rounded-full w-full h-12 transition-all duration-300  ${toggle === "user" ? "shadow-sm shadow-black bg-white text-blue-500 " : "text-neutral-500"}`} onClick={() => { setToggle("user") }}>
                             User Login
                         </button>
+
 
                         <button type='button' className={` rounded-full w-full h-12 transition-all duration-300  ${toggle === "admin" ? "shadow-sm shadow-black bg-white text-blue-500" : "text-neutral-500"}`} onClick={() => { setToggle("admin") }}>
                             Admin Login
                         </button>
+
                     </div>
 
 
                     {/* input fields -------- */}
                     <label htmlFor="">Email</label>
-                    <input type="email" onChange={(e) => SetEmail(e.target.value)} value={email} className='bg-white border h-14 px-3 rounded-3xl  ' placeholder='Enter you email' />
-                    {/* <i className="fa-regular fa-envelope "></i> */}
+                    <input type="email" onChange={(e) =>{ SetEmail(e.target.value); setError("")}} value={email} className='bg-white border h-14 px-3 rounded-3xl  ' placeholder='you@gmail.com' />
+               
 
                     <label className="flex flex-col gap-1">Password
                         <div className="relative">
                             <input
                                 type={show ? "text" : "password"}
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => { setPassword(e.target.value); setError("")}}
                                 value={password}
-                                className="bg-white border h-14 px-3 pr-12 rounded-3xl w-full"
-                                placeholder="Enter your password"
+                                className="bg-white border h-14 px-3 pr-12 rounded-3xl w-full placeholder:font-extrabold placeholder:tracking-[4px] placeholder:text-[19px] placeholder:relative placeholder:top-1 placeholder:-translate-y-2"
+
+                                placeholder="......"
                             />
 
                             <i
@@ -154,9 +172,9 @@ const handleForgotSuccess = (data) => {
 
                     {/* login button------------ */}
                     <div className='justify-center items-center flex flex-col gap-10'>
-                        <button className='w-full bg-gradient-to-r from-blue-500 to-purple-500 h-12 rounded-3xl text-white font-semibold'>Login</button>
+                        <button className='w-full bg-gradient-to-r from-blue-500 to-purple-500 h-12 rounded-3xl text-white font-semibold' onClick={handleSubmit}>Login</button>
 
-                        <p>Don't have an account? <span className='text-purple-600 hover:underline transition-all duration-300 cursor-pointer'>Sign up</span></p>
+                        <p>Don't have an account? <span className='text-purple-600 hover:underline transition-all duration-300 cursor-pointer' onClick={()=>navigate('/signUp')}>Sign up</span></p>
                     </div>
                 </form>
             </div>

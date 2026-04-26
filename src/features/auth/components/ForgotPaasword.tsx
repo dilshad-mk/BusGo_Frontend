@@ -116,13 +116,13 @@ const requestOtp = () => {
 
                             <h1 className='text-center text-blue-500'>Forgot Password</h1>
                             <label htmlFor="" className='flex flex-col gap-3'>Email
-                                <input type="email"  className='border rounded-3xl h-14 px-3' placeholder='Enter your email' onChange={(e)=>setEmail(e.target.value)} value={email}/>
+                                <input type="email"  className='border rounded-3xl h-14 px-3' placeholder='Enter your email' onChange={(e)=> {setEmail(e.target.value); setError("")}} value={email}/>
                             </label>
                               
                                     <button type='button' className='bg-gradient-to-r from-blue-500 to-purple-500 h-14 rounded-3xl text-white' onClick={requestOtp}>Send OTP</button>
 
                                     <label htmlFor="" className='flex flex-col gap-3'>OTP
-                                        <input type="number" name="" id="" className='border rounded-3xl h-14  px-3 ' placeholder='Enter OTP' onChange={(e)=>setOtp(e.target.value)} value={otp}/>
+                                        <input type="number" name="" id="" className='border rounded-3xl h-14  px-3 ' placeholder='Enter OTP' onChange={(e)=> {setOtp(e.target.value); setError("")}} value={otp}/>
                                     </label>
 
 
@@ -131,7 +131,7 @@ const requestOtp = () => {
                                                           <div className="relative">
                                                               <input
                                                                   type={show ? "text" : "password"}
-                                                                  onChange={(e) => setPassword(e.target.value)}
+                                                                  onChange={(e) => {setPassword(e.target.value); setError("")}}
                                                                   value={password}
                                                                   className="bg-white border h-14 px-3 pr-12 rounded-3xl w-full"
                                                                   placeholder="Enter new password"
@@ -151,7 +151,7 @@ const requestOtp = () => {
                                                           <div className="relative">
                                                               <input
                                                                   type={cshow ? "text" : "password"}
-                                                                  onChange={(e) => setConfirmPassword(e.target.value)}
+                                                                  onChange={(e) => {setConfirmPassword(e.target.value); setError("")}}
                                                                   value={confirmpPassword}
                                                                   className="bg-white border h-14 px-3 pr-12 rounded-3xl w-full"
                                                                   placeholder="Confirm your password"
