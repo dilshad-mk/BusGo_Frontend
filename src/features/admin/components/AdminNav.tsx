@@ -25,7 +25,7 @@ function AdminNav({ setActive, active }) {
 
     return (
 
-        <nav className='w-full flex bg-[#0f1421] h-20 items-center tablet:justify-end justify-between px-6 border-b border-neutral-800 fixed top-0'>
+        <nav className='w-full flex bg-[#0f1421] h-20 items-center tablet:justify-end justify-between px-6 border-b border-neutral-800 fixed top-0 z-30'>
 
             {/* desktop nav=-------- */}
             <div className='justify-end px-3 w-full gap-3 items-center hidden tablet:flex'>
@@ -48,7 +48,7 @@ function AdminNav({ setActive, active }) {
                     </div>
 
                     <div className='ml-2'>
-                        <p className='text-white font-medium'>John Doe</p>
+                        <p className='text-white font-medium'>User</p>
                         <p className='text-gray-400 text-sm'>Administrator</p>
                     </div>
                 </div>

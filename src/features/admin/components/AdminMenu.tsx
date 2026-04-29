@@ -1,7 +1,13 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-function AdminMenu({ active, setActive }) {
+
+interface AdminMenuProps {
+  active: string;
+  setActive: (value: string) => void;
+}
+
+function AdminMenu({ active, setActive }: AdminMenuProps) {
 
   const [isOpen, setIsOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -32,12 +38,12 @@ function AdminMenu({ active, setActive }) {
 
   transition={{duration:.3, ease:"easeInOut"}}
 
-  className="bg-[#0f1421] min-h-screen  justify-between items-center gap-6  relative z-50 hidden tablet:flex tablet:flex-col border-r border-neutral-800"
+  className="bg-[#0f1421] min-h-screen justify-between items-center gap-6 fixed left-0 top-0 z-50 hidden tablet:flex tablet:flex-col border-r border-neutral-800"
   
   >
 
     <div className='   border-neutral-800 w-full  flex flex-col justify-center items-center cursor-pointer gap-5'>
-      <span className={`w-full  border-neutral-80 text-white h-20 flex items-center ${isOpen ? "justify-between px-5" : "justify-center"} border-b border-neutral-800`}>
+      <span className={`w-full border-neutral-800 text-white h-20 flex items-center ${isOpen ? "justify-between px-5" : "justify-center"} border-b border-neutral-800`}>
    
      {isOpen && (
         <p className='font-Syne text-[20px] text-blue-400'>BusGo</p>
